@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Food Listing Created</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: #10B981; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
+        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
+        .listing-details { background: white; padding: 20px; border-radius: 6px; margin: 20px 0; }
+        .status { display: inline-block; background: #10B981; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✅ Food Listing Created Successfully!</h1>
+        </div>
+        <div class="content">
+            <h2>Hello {{ user.full_name }}!</h2>
+            <p>Your food listing has been created successfully and is now available for NGOs and volunteers to request.</p>
+            
+            <div class="listing-details">
+                <h3>{{ listing.title }}</h3>
+                <p><strong>Description:</strong> {{ listing.description }}</p>
+                <p><strong>Quantity:</strong> {{ listing.quantity }}</p>
+                <p><strong>Location:</strong> {{ listing.location }}</p>
+                <p><strong>Expires:</strong> {{ listing.expiry_time|date:"M d, Y H:i" }}</p>
+                <p><strong>Status:</strong> <span class="status">{{ listing.status }}</span></p>
+            </div>
+            
+            <p>Your listing is now visible to NGOs and volunteers who can request it. You'll receive notifications when someone makes a request.</p>
+            
+            <p>Thank you for helping reduce food waste!</p>
+            
+            <p>Best regards,<br>The FoodShare Team</p>
+        </div>
+    </div>
+</body>
+</html>

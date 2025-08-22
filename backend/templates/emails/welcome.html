@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to FoodShare</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #10B981, #F97316); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
+        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
+        .button { display: inline-block; background: #10B981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; margin: 20px 0; }
+        .footer { text-align: center; margin-top: 30px; color: #666; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍽️ Welcome to FoodShare!</h1>
+            <p>Together, we're fighting food waste and hunger</p>
+        </div>
+        <div class="content">
+            <h2>Hello {{ user.full_name }}!</h2>
+            <p>Thank you for joining FoodShare, the platform that connects food providers with NGOs and volunteers to reduce food waste and help communities in need.</p>
+            
+            <p><strong>Your Role:</strong> {{ user.role }}</p>
+            <p>{{ role_description }}</p>
+            
+            {% if user.organization %}
+            <p><strong>Organization:</strong> {{ user.organization }}</p>
+            {% endif %}
+            
+            <p>Here's what you can do next:</p>
+            <ul>
+                {% if user.role == 'FoodProvider' %}
+                <li>Create your first food listing</li>
+                <li>Manage your food inventory</li>
+                <li>Connect with NGOs and volunteers</li>
+                {% elif user.role == 'NGO/Volunteer' %}
+                <li>Browse available food items</li>
+                <li>Request food for your organization</li>
+                <li>Track your requests</li>
+                {% else %}
+                <li>Manage all food listings</li>
+                <li>Oversee user activities</li>
+                <li>Monitor platform statistics</li>
+                {% endif %}
+            </ul>
+            
+            <a href="#" class="button">Get Started</a>
+            
+            <p>If you have any questions, feel free to reach out to our support team.</p>
+            
+            <p>Welcome aboard!<br>The FoodShare Team</p>
+        </div>
+        <div class="footer">
+            <p>© 2025 FoodShare. Making a difference, one meal at a time.</p>
+        </div>
+    </div>
+</body>
+</html>

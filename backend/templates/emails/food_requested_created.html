@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>New Food Request</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: #F97316; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
+        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
+        .request-details { background: white; padding: 20px; border-radius: 6px; margin: 20px 0; }
+        .button { display: inline-block; background: #10B981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔔 New Food Request Received!</h1>
+        </div>
+        <div class="content">
+            <h2>Hello {{ user.full_name }}!</h2>
+            <p>You have received a new request for one of your food listings.</p>
+            
+            <div class="request-details">
+                <h3>Request Details</h3>
+                <p><strong>Food Item:</strong> {{ listing.title }}</p>
+                <p><strong>Requested by:</strong> {{ requester.full_name }}</p>
+                {% if requester.organization %}
+                <p><strong>Organization:</strong> {{ requester.organization }}</p>
+                {% endif %}
+                {% if requester.phone %}
+                <p><strong>Phone:</strong> {{ requester.phone }}</p>
+                {% endif %}
+                <p><strong>Email:</strong> {{ requester.email }}</p>
+                
+                {% if request.message %}
+                <p><strong>Message:</strong></p>
+                <p style="font-style: italic; background: #f0f0f0; padding: 15px; border-radius: 4px;">{{ request.message }}</p>
+                {% endif %}
+                
+                <p><strong>Request Date:</strong> {{ request.created_at|date:"M d, Y H:i" }}</p>
+            </div>
+            
+            <p>Please review this request and update its status accordingly. You can approve, reject, or mark it as completed through your dashboard.</p>
+            
+            <a href="#" class="button">View Request</a>
+            
+            <p>Thank you for being part of the FoodShare community!</p>
+            
+            <p>Best regards,<br>The FoodShare Team</p>
+        </div>
+    </div>
+</body>
+</html>
